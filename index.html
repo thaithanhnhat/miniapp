@@ -14,7 +14,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 130vh;
+            height: 115vh;
         }
 
         .container {
@@ -29,6 +29,22 @@
         h1 {
             text-align: center;
             color: #3390ec;
+        }
+
+        /* Tìm kiếm */
+        .search-bar {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-bar input[type="text"] {
+            padding: 10px;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
         }
 
         .product-list {
@@ -93,52 +109,76 @@
 <body>
 
     <div class="container">
-        <h1>Product List</h1>
-        <ul class="product-list">
-            <li>
-                <div class="product-info">
-                    <h2>Product 1</h2>
-                    <p>Dancay.</p>
-                </div>
-                <span class="product-price">$99.99</span>
-                <button class="buy-button">Buy Now</button>
-            </li>
-            <li>
-                <div class="product-info">
-                    <h2>Product 1</h2>
-                    <p>Dancay.</p>
-                </div>
-                <span class="product-price">$99.99</span>
-                <button class="buy-button">Buy Now</button>
-            </li>
-            <li>
-                <div class="product-info">
-                    <h2>Product 1</h2>
-                    <p>Dancay.</p>
-                </div>
-                <span class="product-price">$99.99</span>
-                <button class="buy-button">Buy Now</button>
-            </li>
-            <li>
-                <div class="product-info">
-                    <h2>Product 1</h2>
-                    <p>Dancay.</p>
-                </div>
-                <span class="product-price">$99.99</span>
-                <button class="buy-button">Buy Now</button>
-            </li>
-            <li>
-                <div class="product-info">
-                    <h2>Product 1</h2>
-                    <p>Dancay.</p>
-                </div>
-                <span class="product-price">$99.99</span>
-                <button class="buy-button">Buy Now</button>
-            </li>
+        <h1>Tìm theo tên sản phẩm</h1>
 
-    
+        <!-- Thanh tìm kiếm -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Nhập tên sản phẩm...">
+        </div>
+
+        <!-- Danh sách sản phẩm -->
+        <ul class="product-list" id="productList">
+            <li>
+                <div class="product-info">
+                    <h2>Product 1</h2>
+                    <p>Dancay.</p>
+                </div>
+                <span class="product-price">$99.99</span>
+                <button class="buy-button">Buy Now</button>
+            </li>
+            <li>
+                <div class="product-info">
+                    <h2>Product 2</h2>
+                    <p>Sản phẩm chất lượng.</p>
+                </div>
+                <span class="product-price">$49.99</span>
+                <button class="buy-button">Buy Now</button>
+            </li>
+            <li>
+                <div class="product-info">
+                    <h2>Product 3</h2>
+                    <p>Sản phẩm tốt cho gia đình.</p>
+                </div>
+                <span class="product-price">$29.99</span>
+                <button class="buy-button">Buy Now</button>
+            </li>
+            <li>
+                <div class="product-info">
+                    <h2>Product 4</h2>
+                    <p>Sản phẩm bền vững.</p>
+                </div>
+                <span class="product-price">$79.99</span>
+                <button class="buy-button">Buy Now</button>
+            </li>
+            <li>
+                <div class="product-info">
+                    <h2>Product 5</h2>
+                    <p>Giá hợp lý.</p>
+                </div>
+                <span class="product-price">$19.99</span>
+                <button class="buy-button">Buy Now</button>
+            </li>
         </ul>
     </div>
+
+    <script>
+        // Lọc danh sách sản phẩm theo tên
+        const searchInput = document.getElementById('searchInput');
+        const productList = document.getElementById('productList');
+        const products = productList.getElementsByTagName('li');
+
+        searchInput.addEventListener('input', function () {
+            const filter = searchInput.value.toLowerCase();
+            for (let i = 0; i < products.length; i++) {
+                const productName = products[i].getElementsByTagName('h2')[0].innerText.toLowerCase();
+                if (productName.includes(filter)) {
+                    products[i].style.display = '';
+                } else {
+                    products[i].style.display = 'none';
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
