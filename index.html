@@ -1,19 +1,128 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mini App</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniApp Theme</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3390ec;
+        }
+
+        .product-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .product-list li {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .product-list li:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-info h2 {
+            font-size: 18px;
+            color: #000;
+            margin: 0;
+        }
+
+        .product-info p {
+            color: #707579;
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .product-price {
+            font-size: 18px;
+            color: #3390ec;
+            font-weight: bold;
+        }
+
+        .buy-button {
+            background-color: #3390ec;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .buy-button:hover {
+            background-color: #2675cc;
+        }
+    </style>
 </head>
 <body>
-    <h1>Sắp xong gòi, ae đợi xíu</h1>
-    <button id="sendMessage">Gửi tin nhắn</button>
-    <script>
-        const tg = window.Telegram.WebApp;
 
-        document.getElementById('sendMessage').onclick = () => {
-            tg.sendData('Tin nhắn từ Mini App');
-        };
-    </script>
+    <div class="container">
+        <h1>Product List</h1>
+        <ul class="product-list">
+            <li>
+                <div class="product-info">
+                    <h2>Product 1</h2>
+                    <p>High quality product with excellent features.</p>
+                </div>
+                <span class="product-price">$99.99</span>
+                <button class="buy-button">Buy Now</button>
+            </li>
+
+            <li>
+                <div class="product-info">
+                    <h2>Product 2</h2>
+                    <p>Eco-friendly and budget-friendly choice.</p>
+                </div>
+                <span class="product-price">$49.99</span>
+                <button class="buy-button">Buy Now</button>
+            </li>
+
+            <li>
+                <div class="product-info">
+                    <h2>Product 3</h2>
+                    <p>Stylish and durable product for everyday use.</p>
+                </div>
+                <span class="product-price">$79.99</span>
+                <button class="buy-button">Buy Now</button>
+            </li>
+        </ul>
+    </div>
+
 </body>
 </html>
