@@ -31,7 +31,6 @@
             color: #3390ec;
         }
 
-        /* Tìm kiếm */
         .search-bar {
             margin-bottom: 20px;
             display: flex;
@@ -71,6 +70,7 @@
         .product-info {
             display: flex;
             flex-direction: column;
+            flex-grow: 1; 
         }
 
         .product-info h2 {
@@ -85,10 +85,18 @@
             margin: 5px 0;
         }
 
+        .product-details {
+            display: flex; /* Thay đổi để dùng flexbox */
+            flex-direction: column; /* Đặt hướng dọc */
+            align-items: center; /* Căn giữa các phần tử dọc */
+            flex-grow: 1; /* Làm cho nó chiếm hết không gian có sẵn */
+        }
+
         .product-price {
             font-size: 18px;
             color: #3390ec;
             font-weight: bold;
+            margin-top: 10px; /* Thêm khoảng cách với tên sản phẩm */
         }
 
         .buy-button {
@@ -104,34 +112,47 @@
         .buy-button:hover {
             background-color: #2675cc;
         }
+
+        .styled-link {
+            color: #4CAF50; 
+            text-decoration: none; 
+            transition: background-color 0.3s; 
+            margin-right: 10px;
+        }
+
+        .styled-link:hover {
+            color: white;
+            border-radius: 5px;
+            background-color: #45a049; 
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Tìm theo tên sản phẩm</h1>
-
-        <!-- Thanh tìm kiếm -->
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Nhập tên sản phẩm...">
         </div>
 
-        <!-- Danh sách sản phẩm -->
         <ul class="product-list" id="productList">
             <li>
                 <div class="product-info">
-                    <h2>Product 1</h2>
-                    <p>Dancay.</p>
+                    <h2>Extention Blum</h2>
+                    <div style="display: flex; align-items: center;">
+                        <a href="https://web.telegram.org/k/#@dancayairdrop" class="styled-link">Dân cày Airdrop</a>
+                        <a href="https://example.com" style="color: black;" class="styled-link">|</a>
+                        <a href="https://example.com" class="styled-link">Hướng dẫn</a>
+                    </div>
                 </div>
-                <span class="product-price">Free</span>
-                <button id="blum_extention" class="buy-button">Download</button>
+                <div class="product-details"> 
+                    <div class="product-price">Free</div>
+                    <button id="blum_extention" class="buy-button">Download</button>
+                </div>
             </li>
-            
         </ul>
     </div>
 
     <script>
-        // Lọc danh sách sản phẩm theo tên
         const searchInput = document.getElementById('searchInput');
         const productList = document.getElementById('productList');
         const products = productList.getElementsByTagName('li');
@@ -149,9 +170,10 @@
         });
 
         document.getElementById('blum_extention').addEventListener('click', function() {
-            window.location.href = 'https://1drv.ms/u/c/81995fba9f4e5c3e/Ef9W9sj08NtBhFWxkwLGpp0Bqb59_279KZ53jpRqfu_MWQ?e=jDfbb2';
+            window.location.href = 'https://download843.mediafire.com/803rorl0j1kgB6lxExmLuiRpcYlCMCGRj8_txE-rdQUwSZkAPVQXxnW9sXOg2u4zDOQK95FFkHWwQNNPs8EjR4gd_z-rnBwfGTAtBza2kkKKuMa1IfUGo10z7ec6xtvPbMPpLoGbYEV-RgG3bVpKtprphSOKCwWX3Nn2o0kLcotzCQ/jglcz941cssxfwj/Auto+Blum-16-10.js';
         });
     </script>
 
 </body>
 </html>
+
